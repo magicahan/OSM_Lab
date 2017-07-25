@@ -67,7 +67,7 @@ def compare_method(f, c, w, iDim, iOut, iDepth, refinement_level):
         adap_errormax = max(adap_error)
         error_list_adap.append(adap_errormax)
     
-    plt.plot(list(range(iDepth)), error_list_nonadap, label = 'Non Adaptive')
+    #plt.plot(list(range(iDepth)), error_list_nonadap, label = 'Non Adaptive')
     plt.plot(list(range(iDepth)), error_list_adap, label = 'Adaptive')
     plt.legend()
     cur_path = os.path.split(os.path.abspath(__file__))[0]
