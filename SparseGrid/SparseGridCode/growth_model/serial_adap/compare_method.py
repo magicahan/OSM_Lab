@@ -41,7 +41,8 @@ def adap(f, c, w, iDim, iOut, iDepth, refinement_level):
     
 
 def compare_method(f, c, w, iDim, iOut, iDepth, refinement_level):
-    aPoints = np.random.randint(-1, 1, (1000, iDim))
+    aPoints = np.random.uniform(-10, 10, (1000, iDim))
+    print(aPoints)
     non_adap_error = []
     adap_error = []
     error_list_nonadap = []
