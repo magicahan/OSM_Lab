@@ -8,7 +8,7 @@ from random import uniform
 from datetime import datetime
 import matplotlib.pyplot as plt
 
-fTol = 1e-5
+fTol = 1e-20
 which_basis = 1
 
 def non_adap(f, c, w, iDim, iOut, iDepth):
