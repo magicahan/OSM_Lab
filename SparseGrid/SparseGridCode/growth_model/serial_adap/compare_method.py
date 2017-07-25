@@ -50,7 +50,7 @@ def compare_method(f, c, w, iDim, iOut, iDepth, refinement_level):
     #for non adaptive method
     for k in range(iDepth):
         non_adap_error = []
-        grid_nonadap = non_adap(f, c, w, iDim, iOut, k)
+        grid_nonadap = non_adap(f, c, w, iDim, iOut, k + 1)
         for i in range(aPoints.shape[0]):
             error = abs(grid_nonadap.evaluate(aPoints[i, :]) - f(aPoints[i, :],c, w))
             non_adap_error.append(error)
@@ -68,6 +68,7 @@ def compare_method(f, c, w, iDim, iOut, iDepth, refinement_level):
     
     plt.plot(list(range(iDepth)), error_list_nonadap, label = 'Non Adaptive')
     plt.plot(list(range(iDepth)), error_list_adap, label = 'Adaptive')
+    plt.legend()
     cur_path = os.path.split(os.path.abspath(__file__))[0]
     output_fldr = "images"
     output_dir = os.path.join(cur_path, output_fldr)
