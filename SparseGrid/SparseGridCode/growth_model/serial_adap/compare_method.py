@@ -86,8 +86,8 @@ def compare_method(f, c, w, iDim, iOut, iDepth, refinement_level):
     plt.close()
 
 def f(x, c, w):
-    #rv = np.cos(2 * np.pi * w[0] + np.dot(c, x))
-    rv = np.exp(-np.dot(c**2, (x - w)**2))
+    rv = np.cos(2 * np.pi * w[0] + np.dot(c, x))
+    #rv = np.exp(-np.dot(c**2, (x - w)**2))
     return rv
     
 
