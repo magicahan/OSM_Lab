@@ -49,6 +49,7 @@ def compare_method(f, c, w, iDim, iOut, iDepth, refinement_level):
     
     #for non adaptive method
     for k in range(iDepth):
+        non_adap_error = []
         grid_nonadap = non_adap(f, c, w, iDim, iOut, k)
         for i in range(aPoints.shape[0]):
             error = abs(grid_nonadap.evaluate(aPoints[i, :]) - f(aPoints[i, :],c, w))
@@ -57,7 +58,8 @@ def compare_method(f, c, w, iDim, iOut, iDepth, refinement_level):
         error_list_nonadap.append(non_adap_errormax)
     
     for k in range(iDepth):
-        grid_adap = adap(f, c, w, iDim, iOut, iDepth, k)
+        adap_error = []
+        grid_adap = adap(f, c, w, iDim, iOut, 1, k)
         for i in range(aPoints.shape[0]):
             error = abs(grid_adap.evaluate(aPoints[i, :]) - f(aPoints[i, :], c, w))
             adap_error.append(error)
