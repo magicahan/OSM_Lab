@@ -42,7 +42,7 @@ def adap(f, c, w, iDim, iOut, iDepth, refinement_level):
 
 def compare_method(f, c, w, iDim, iOut, iDepth, refinement_level):
     np.random.seed(12345)
-    aPoints = np.random.uniform(-10, 10, (1000, iDim))
+    aPoints = np.random.uniform(-3, 3, (1000, iDim))
     print(aPoints)
     non_adap_error = []
     adap_error = []
