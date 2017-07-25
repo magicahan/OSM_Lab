@@ -41,6 +41,7 @@ def adap(f, c, w, iDim, iOut, iDepth, refinement_level):
     
 
 def compare_method(f, c, w, iDim, iOut, iDepth, refinement_level):
+    np.random.seed(12345)
     aPoints = np.random.uniform(-10, 10, (1000, iDim))
     print(aPoints)
     non_adap_error = []
@@ -75,9 +76,14 @@ def compare_method(f, c, w, iDim, iOut, iDepth, refinement_level):
     output_dir = os.path.join(cur_path, output_fldr)
     if not os.access(output_dir, os.F_OK):
         os.makedirs(output_dir)
-    output_path = os.path.join(output_dir, "compare_method")
+    output_path = os.path.join(output_dir, "adaptive")
     plt.savefig(output_path)
-    plt.close()    
+    plt.close()
+    plt.plot(list(range(iDepth)), error_list_nonadap, label = 'Non Adaptive')
+    plt.legend()    
+    output_path = os.path.join(output_dir, "nonadap")
+    plt.savefig(output_path)
+    plt.close()
 
 def f(x, c, w):
     rv = np.cos(2 * np.pi * w[0] + np.dot(c, x))
